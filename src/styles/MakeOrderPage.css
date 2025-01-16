@@ -1,0 +1,14 @@
+.make-order {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #28a745;
+    border: 1px solid #28a745;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    gap: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
