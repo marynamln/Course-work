@@ -12,3 +12,59 @@
     margin-top: 5px;
     width: 100%;
 }
+
+.decrement, .increment {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid #dadada8a;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.plus-order-svg, .minus-order-svg {
+    width: 1rem;
+    height: auto;
+}
+
+.order-controls {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.quantity {
+    font-size: 1.5rem;
+}
+
+.order-summary-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 15px 15px 15px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1100;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.next-button-order{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+}

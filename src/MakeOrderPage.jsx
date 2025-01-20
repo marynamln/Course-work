@@ -9,6 +9,7 @@ import upSvg from './assets/svg/chevron-up.svg';
 import plusSvg from './assets/svg/plus.svg';
 import closeSvg from './assets/svg/xmark.svg';
 import Footer from "./Footer";
+import Order from './Order';
 
 function MakeOrderPage() {
 
@@ -117,6 +118,12 @@ function MakeOrderPage() {
         item.name.toLowerCase().includes(searchText)
     );
 
+    const [totalAmount, setTotalAmount] = useState(0);
+
+    const updateTotalAmount = (amount) => {
+        setTotalAmount((prev) => prev + amount);
+    };
+
     return(
         <div className='page'>
             
@@ -126,7 +133,7 @@ function MakeOrderPage() {
                     <button className="icon" onClick={navigateHome}>
                         <img className="left-svg" src={leftSvg} alt="Back" />
                     </button>
-                    <h2 className="page-title">ЗРОБИТИ ЗАМОВЛЕННЯ</h2>
+                    <h2 className="page-title">ЗАМОВЛЕННЯ</h2>
                     <button className="icon" onClick={handleSearchClick}>
                         <img className="search-svg" src={searchSvg} alt="Search" />
                     </button>
@@ -157,7 +164,8 @@ function MakeOrderPage() {
                     <>
                     {filteredItems.length > 0 ? (
                     filteredItems.map((item, index) => (
-                        <MenuItem key={index} item={item} openDialog={openDialog} />
+                        <MenuItem key={index} item={item} openDialog={openDialog} 
+                        updateTotalAmount={updateTotalAmount} totalAmount={totalAmount}/>
                     ))
                     ) : (
                         <div className='nothing-search'>Нічого не знайдено</div>
@@ -183,7 +191,8 @@ function MakeOrderPage() {
                             <h2 className="menu-category-title">{category.toUpperCase()}</h2>
                             <div className="menu-items">
                             {items.map((item, index) => (
-                                <MenuItem key={index} item={item} openDialog={openDialog} />
+                                <MenuItem key={index} item={item} openDialog={openDialog} 
+                                updateTotalAmount={updateTotalAmount} totalAmount={totalAmount} />
                             ))}
                             </div>
                         </section>
@@ -224,7 +233,7 @@ function MakeOrderPage() {
     )
 }
 
-function MenuItem({ item, openDialog }) {
+function MenuItem({ item, openDialog, updateTotalAmount, totalAmount }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const isLongText = item.description.length > 40;
 
@@ -259,10 +268,7 @@ function MenuItem({ item, openDialog }) {
                     alt={item.name}
                     loading="lazy"
                 />
-                <button className='make-order'>
-                    <img className='plus-svg' src={plusSvg} alt='plus'/>
-                    ЗАМОВИТИ
-                </button>
+                <Order item={item} updateTotalAmount={updateTotalAmount} totalAmount={totalAmount} />
             </div>
         </div>
     );
