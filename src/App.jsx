@@ -5,7 +5,7 @@ import MenuPage from './MenuPage';
 import ContactsPage from './ContactsPage';
 import MakeOrderPage from './MakeOrderPage';
 import FeedbackPage from './FeedbackPage';
-import SearchPage from './SearchPage';
+import ConfirmOrderPage from './ConfirmOrderPage';
 import './styles/HomePage.css'
 import './styles/MenuPage.css'
 
@@ -18,10 +18,10 @@ function App() {
       <Route path="/makeorder" element={<MakeOrderPage/>} />
       <Route path="/contacts" element={<ContactsPage/>} />
       <Route path="/feedback" element={<FeedbackPage/>} />
-      <Route path="/search" element={<SearchPage/>} />
+      <Route path="/confirm-order" element={<ConfirmOrderPage/>} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="*" element={<Navigate to="/home" />} />
-    </Routes>
+    </Routes>   
   )
 }
 

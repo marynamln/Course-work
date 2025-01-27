@@ -236,6 +236,57 @@ button, a {
   border-bottom: 1px solid #dadada8a;
 }
 
+.order-total {
+  padding: 15px;
+  border-bottom: 1px solid #dadada8a;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.next-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 15px 15px 15px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  z-index: 1000;
+}
+
+.comment-section {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 90px;
+}
+
+.comment-title {
+  font-size: larger;
+  font-weight: 600;
+}
+
+.comment {
+  width: 100%;
+  border: 1px solid #1d1d1d8a;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.bottom {
+  border-top: 1px solid #dadada8a;
+  width: 100%;
+  height: 75px;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

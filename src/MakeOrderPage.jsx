@@ -6,7 +6,6 @@ import searchSvg from './assets/svg/search.svg'
 import leftSvg from './assets/svg/left.svg';
 import menuData from './menu.json';
 import upSvg from './assets/svg/chevron-up.svg';
-import plusSvg from './assets/svg/plus.svg';
 import closeSvg from './assets/svg/xmark.svg';
 import Footer from "./Footer";
 import Order from './Order';
@@ -124,6 +123,24 @@ function MakeOrderPage() {
         setTotalAmount((prev) => prev + amount);
     };
 
+    const [orderItems, setOrderItems] = useState({});
+
+    const updateOrderItems = (itemId, quantity, item) => {
+        setOrderItems(prev => {
+        if (quantity === 0) {
+            const { [itemId]: removed, ...rest } = prev;
+            return rest;
+        }
+        return {
+            ...prev,
+            [itemId]: {
+            quantity,
+            item
+            }
+        };
+        });
+    };
+
     return(
         <div className='page'>
             
@@ -165,7 +182,8 @@ function MakeOrderPage() {
                     {filteredItems.length > 0 ? (
                     filteredItems.map((item, index) => (
                         <MenuItem key={index} item={item} openDialog={openDialog} 
-                        updateTotalAmount={updateTotalAmount} totalAmount={totalAmount}/>
+                        updateTotalAmount={updateTotalAmount} totalAmount={totalAmount}
+                        updateOrderItems={updateOrderItems} orderItems={orderItems}/>
                     ))
                     ) : (
                         <div className='nothing-search'>Нічого не знайдено</div>
@@ -192,7 +210,8 @@ function MakeOrderPage() {
                             <div className="menu-items">
                             {items.map((item, index) => (
                                 <MenuItem key={index} item={item} openDialog={openDialog} 
-                                updateTotalAmount={updateTotalAmount} totalAmount={totalAmount} />
+                                updateTotalAmount={updateTotalAmount} totalAmount={totalAmount} 
+                                updateOrderItems={updateOrderItems} orderItems={orderItems}/>
                             ))}
                             </div>
                         </section>
@@ -233,7 +252,7 @@ function MakeOrderPage() {
     )
 }
 
-function MenuItem({ item, openDialog, updateTotalAmount, totalAmount }) {
+function MenuItem({ item, openDialog, updateTotalAmount, totalAmount, updateOrderItems, orderItems }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const isLongText = item.description.length > 40;
 
@@ -268,10 +287,11 @@ function MenuItem({ item, openDialog, updateTotalAmount, totalAmount }) {
                     alt={item.name}
                     loading="lazy"
                 />
-                <Order item={item} updateTotalAmount={updateTotalAmount} totalAmount={totalAmount} />
+                <Order item={item} updateTotalAmount={updateTotalAmount} totalAmount={totalAmount}
+                updateOrderItems={updateOrderItems} orderItems={orderItems}  />
             </div>
         </div>
     );
-}
+};
 
 export default MakeOrderPage;
