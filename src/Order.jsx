@@ -10,22 +10,6 @@ const Order = ({ item, updateTotalAmount, totalAmount, updateOrderItems, orderIt
   const [quantity, setQuantity] = useState(0);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-  // const handleIncrement = () => {
-  //   setQuantity((prev) => prev + 1);
-  //   updateTotalAmount(item.price);
-  // };
-
-  // const handleDecrement = () => {
-  //   if (quantity > 1) {
-  //     setQuantity((prev) => prev - 1);
-  //     updateTotalAmount(-item.price);
-  //   } else {
-  //     setQuantity(0);
-  //     setIsPopupVisible(false);
-  //     updateTotalAmount(-item.price);
-  //   }
-  // };
-
   const handleIncrement = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);

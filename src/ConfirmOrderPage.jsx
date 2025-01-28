@@ -4,19 +4,57 @@ import leftSvg from './assets/svg/left.svg';
 import minusSvg from "./assets/svg/minus.svg";
 import plusSvg from "./assets/svg/plus.svg";
 import trashSvg from "./assets/svg/trash.svg";
-import Footer from "./Footer";
+import cartSvg from './assets/svg/cart.svg';
 
 function ConfirmOrderPage() {
 
     const location = useLocation();
-    const { orderItems, totalAmount } = location.state || { orderItems: {}, totalAmount: 0 };
+
+    const { orderItems: initialOrderItems, totalAmount } = location.state || { orderItems: {}, totalAmount: 0 };
+
+    const [orderItems, setOrderItems] = useState(initialOrderItems);
+
+    const removeItem = (itemId) => {
+        const itemToRemove = orderItems[itemId];
+        if (itemToRemove) {
+            setOrderItems((prevItems) => {
+                const updatedItems = { ...prevItems };
+                delete updatedItems[itemId];
+                return updatedItems;
+            });
+        }
+    };
+
+    const updateItemQuantity = (itemId, newQuantity, itemPrice) => {
+        setOrderItems((prevOrderItems) => {
+            const updatedOrderItems = { ...prevOrderItems };
+            if (newQuantity > 0) {
+                updatedOrderItems[itemId] = {
+                    ...updatedOrderItems[itemId],
+                    quantity: newQuantity,
+                };
+            } else {
+                delete updatedOrderItems[itemId];
+            }
+            return updatedOrderItems;
+        });
+    };
 
     const navigate = useNavigate();
     const navigateToOrder = () => {
         navigate('/makeorder');
     };
 
-    const [totalPrice, setTotalPrice] = useState(totalAmount);    
+    const navigateConfirmDelivery = () => {
+        navigate('/confirm-order/confirm-delivery', { 
+            state: { 
+                totalPrice,
+                orderItems
+            }
+        });
+    };
+
+    const [totalPrice, setTotalPrice] = useState(totalAmount); 
 
     return (
         <div className='page'>
@@ -28,10 +66,14 @@ function ConfirmOrderPage() {
             </header>
 
             <main className='main'>
+                {totalPrice > 0 ? 
+                <>
                 <div className="order-items">
                     {Object.entries(orderItems).map(([itemId, { quantity, item }]) => (
                         <MenuItem key={itemId} item={item} quantity={quantity} 
-                        totalPrice={totalPrice} setTotalPrice={setTotalPrice}/>
+                        totalPrice={totalPrice} setTotalPrice={setTotalPrice} 
+                        updateItemQuantity={(newQuantity) => updateItemQuantity(itemId, newQuantity, item.price)}
+                        removeItem={() => removeItem(itemId)} />
                     ))}
                 </div>
                 
@@ -45,30 +87,45 @@ function ConfirmOrderPage() {
                     <textarea className='comment' rows="5" placeholder="Введіть тут ваш коментар"></textarea>
                 </div>
 
-                <button className="next-button">ДАЛІ</button>
+                <button className="next-button" onClick={navigateConfirmDelivery}>ДАЛІ</button>
                 <div className='bottom'></div>
+                </>
+                :
+                <div className='no-order'>
+                    <img className='empty-cart-img' src={cartSvg} alt='empty-cart' />
+                    <div className='empty-cart'>Корзина порожня. Ви ще нічого не замовили</div>
+                    <button className='exit' onClick={navigateToOrder} >Повернутися до меню</button>
+                </div>
+                }
             </main>
         </div>
     )
 }
 
-function MenuItem({ item, quantity, totalPrice, setTotalPrice }) {
+function MenuItem({ item, quantity, totalPrice, setTotalPrice, updateItemQuantity }) {
 
     const [number, setQuantity] = useState(quantity);
 
     const handleIncrement = () => {
-        setQuantity(number + 1);
+        const newQuantity = number + 1;
+        setQuantity(newQuantity);
+        updateItemQuantity(newQuantity);
         setTotalPrice(totalPrice + item.price);
     };
 
     const handleDecrement = () => {
-        if (quantity > 1) {
-            setQuantity(number - 1);
-            setTotalPrice(totalPrice - item.price);
-        } else {
-            setQuantity(0);
-            setTotalPrice(totalPrice - item.price);
-        }
+        // if (quantity > 1) {
+        //     setQuantity(number - 1);
+        //     setTotalPrice(totalPrice - item.price);
+        // } else {
+        //     setQuantity(0);
+        //     setTotalPrice(totalPrice - item.price);
+        // }
+
+        const newQuantity = number - 1;
+        setQuantity(newQuantity > 0 ? newQuantity : 0);
+        updateItemQuantity(newQuantity);
+        setTotalPrice(totalPrice - item.price);
     };
 
     return (
