@@ -123,21 +123,30 @@ function MakeOrderPage() {
         setTotalAmount((prev) => prev + amount);
     };
 
-    const [orderItems, setOrderItems] = useState({});
+    const [orderItems, setOrderItems] = useState(() => {
+        const savedOrderItems = localStorage.getItem("orderItems");
+        return savedOrderItems ? JSON.parse(savedOrderItems) : {};
+    });
 
     const updateOrderItems = (itemId, quantity, item) => {
         setOrderItems(prev => {
-        if (quantity === 0) {
-            const { [itemId]: removed, ...rest } = prev;
-            return rest;
-        }
-        return {
-            ...prev,
-            [itemId]: {
-            quantity,
-            item
+            let updatedOrderItems;
+    
+            if (quantity === 0) {
+                const { [itemId]: removed, ...rest } = prev;
+                updatedOrderItems = rest;
+            } else {
+                updatedOrderItems = {
+                    ...prev,
+                    [itemId]: {
+                        quantity,
+                        item
+                    }
+                };
             }
-        };
+    
+            localStorage.setItem("orderItems", JSON.stringify(updatedOrderItems));
+            return updatedOrderItems;
         });
     };
 

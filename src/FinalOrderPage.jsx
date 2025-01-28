@@ -14,6 +14,7 @@ function FinalOrderPage() {
 
     const navigate = useNavigate();
     const navigateHome = () => {
+        localStorage.clear();
         navigate('/home');
     };
 

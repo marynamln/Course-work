@@ -24,7 +24,8 @@
   .item-number-delivery {
     width: 10%;
     font-weight: 600;
-    font-size: large;
+    font-size: medium;
+    text-align: center;
   }
   
   .item-name-delivery {
@@ -36,7 +37,9 @@
   .item-price-delivery {
     width: 25%;
     font-weight: 600;
-    font-size: large;
+    font-size: medium;
+    padding: 0 5px 0 5px;
+    text-align: center;
   }
   
   .order-total-delivery {
@@ -71,7 +74,17 @@
   }
 
   .delivery-category-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
+  }
+
+  .confirm-delivery-category-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #row-category {
+    width: calc(33% - 5px);
   }
 
   .delivery-select {

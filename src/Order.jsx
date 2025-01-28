@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import plusSvg from "./assets/svg/plus.svg";
 import minusSvg from "./assets/svg/minus.svg";
@@ -7,8 +7,33 @@ import './styles/MakeOrderPage.css';
 import rightSvg from './assets/svg/right.svg';
 
 const Order = ({ item, updateTotalAmount, totalAmount, updateOrderItems, orderItems }) => {
-  const [quantity, setQuantity] = useState(0);
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const [quantity, setQuantity] = useState(() => {
+    const savedQuantity = localStorage.getItem(`quantity-${item.id}`);
+    return savedQuantity ? JSON.parse(savedQuantity) : 0;
+  });
+
+  const [isPopupVisible, setIsPopupVisible] = useState(() => {
+    const savedPopup = localStorage.getItem("isPopupVisible");
+    return savedPopup ? JSON.parse(savedPopup) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(`quantity-${item.id}`, JSON.stringify(quantity));
+    localStorage.setItem("isPopupVisible", JSON.stringify(isPopupVisible));
+  }, [quantity, isPopupVisible]);
+
+  useEffect(() => {
+    // localStorage.clear();
+    const savedTotal = localStorage.getItem("totalAmount");
+    if (savedTotal) {
+      updateTotalAmount(parseFloat(savedTotal));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("totalAmount", totalAmount);
+  }, [totalAmount]);
 
   const handleIncrement = () => {
     const newQuantity = quantity + 1;
@@ -71,7 +96,6 @@ export const OrderSummaryPopup = ({ totalAmount, orderItems }) => {
 
   const navigate = useNavigate();
   const navigateConfirmOrder = () => {
-      // navigate('/confirm-order');
       navigate('/confirm-order', { 
         state: { 
           orderItems,
@@ -79,6 +103,10 @@ export const OrderSummaryPopup = ({ totalAmount, orderItems }) => {
         } 
       });
   };
+
+  useEffect(() => {
+    localStorage.setItem("orderItems", JSON.stringify(orderItems));
+  }, [orderItems]);
 
   return (
     <div className="order-summary-popup">

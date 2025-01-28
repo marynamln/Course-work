@@ -10,7 +10,7 @@
     padding: 5px;
     gap: 5px;
     margin-top: 5px;
-    width: 100%;
+    width: 110px;
 }
 
 .decrement, .increment {
@@ -30,7 +30,7 @@
 .order-controls {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 110px;
     align-items: center;
     justify-content: space-between;
     margin-top: 15px;

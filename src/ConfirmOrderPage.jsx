@@ -12,7 +12,26 @@ function ConfirmOrderPage() {
 
     const { orderItems: initialOrderItems, totalAmount } = location.state || { orderItems: {}, totalAmount: 0 };
 
-    const [orderItems, setOrderItems] = useState(initialOrderItems);
+    // const [orderItems, setOrderItems] = useState(initialOrderItems);
+    // const [totalPrice, setTotalPrice] = useState(totalAmount);
+
+    const [totalPrice, setTotalPrice] = useState(() => {
+        const savedtotalAmount = localStorage.getItem("totalAmount");
+        return savedtotalAmount ? JSON.parse(savedtotalAmount) : totalAmount;
+    });
+
+    const [orderItems, setOrderItems] = useState(() => {
+        const savedOrderItems = localStorage.getItem("orderItems");
+        return savedOrderItems ? JSON.parse(savedOrderItems) : (state?.orderItems || {});
+    });
+
+    useEffect(() => {
+        localStorage.setItem("orderItems", JSON.stringify(orderItems));
+    }, [orderItems]);
+
+    useEffect(() => {
+        localStorage.setItem("totalAmount", totalPrice);
+    }, [totalPrice]);
 
     const removeItem = (itemId) => {
         const itemToRemove = orderItems[itemId];
@@ -20,6 +39,7 @@ function ConfirmOrderPage() {
             setOrderItems((prevItems) => {
                 const updatedItems = { ...prevItems };
                 delete updatedItems[itemId];
+                localStorage.removeItem(`quantity-${itemId}`);
                 return updatedItems;
             });
         }
@@ -33,8 +53,10 @@ function ConfirmOrderPage() {
                     ...updatedOrderItems[itemId],
                     quantity: newQuantity,
                 };
+                localStorage.setItem(`quantity-${itemId}`, JSON.stringify(newQuantity));
             } else {
                 delete updatedOrderItems[itemId];
+                localStorage.removeItem(`quantity-${itemId}`);
             }
             return updatedOrderItems;
         });
@@ -52,9 +74,7 @@ function ConfirmOrderPage() {
                 orderItems
             }
         });
-    };
-
-    const [totalPrice, setTotalPrice] = useState(totalAmount); 
+    }; 
 
     return (
         <div className='page'>
@@ -104,7 +124,15 @@ function ConfirmOrderPage() {
 
 function MenuItem({ item, quantity, totalPrice, setTotalPrice, updateItemQuantity }) {
 
-    const [number, setQuantity] = useState(quantity);
+    // const [number, setQuantity] = useState(quantity);
+    const [number, setQuantity] = useState(() => {
+        const savedQuantity = localStorage.getItem(`quantity-${item.id}`);
+        return savedQuantity ? JSON.parse(savedQuantity) : quantity;
+    });
+
+    useEffect(() => {
+        localStorage.setItem(`quantity-${item.id}`, JSON.stringify(number));
+      }, [number]);
 
     const handleIncrement = () => {
         const newQuantity = number + 1;
@@ -114,16 +142,8 @@ function MenuItem({ item, quantity, totalPrice, setTotalPrice, updateItemQuantit
     };
 
     const handleDecrement = () => {
-        // if (quantity > 1) {
-        //     setQuantity(number - 1);
-        //     setTotalPrice(totalPrice - item.price);
-        // } else {
-        //     setQuantity(0);
-        //     setTotalPrice(totalPrice - item.price);
-        // }
-
         const newQuantity = number - 1;
-        setQuantity(newQuantity > 0 ? newQuantity : 0);
+        setQuantity(newQuantity);
         updateItemQuantity(newQuantity);
         setTotalPrice(totalPrice - item.price);
     };

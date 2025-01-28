@@ -6,7 +6,12 @@ import './styles/ConfirmOrderPage.css';
 function ConfirmOrderPage() {
 
     const location = useLocation();
-    const { totalPrice, orderItems } = location.state;
+    const { totalPrice } = location.state;
+
+    const [orderItems, setOrderItems] = useState(() => {
+        const savedOrderItems = localStorage.getItem("orderItems");
+        return savedOrderItems ? JSON.parse(savedOrderItems) : (state?.orderItems || {});
+    });
 
     const navigate = useNavigate();
     const navigateToConfirmOrder = () => {
@@ -129,11 +134,33 @@ function ConfirmOrderPage() {
                     </div>
 
                     {deliveryType === 'delivery' &&
+                    <>
                         <div className='confirm-delivery-category'>
-                            <span className='delivery-category-title' type='tel'>Адреса*</span>
+                            <span className='delivery-category-title' type='text'>Вулиця*</span>
                             <input className='delivery-input'
                             value={address} onChange={handleAdressChange}  required />
                         </div>
+
+                        <div className='confirm-delivery-category-row'>
+                            <div className='confirm-delivery-category' id='row-category'>
+                                <span className='delivery-category-title' type='text'>Будинок*</span>
+                                <input className='delivery-input'
+                                value={address} onChange={handleAdressChange}  required />
+                            </div>
+
+                            <div className='confirm-delivery-category' id='row-category'>
+                                <span className='delivery-category-title' type='text'>Під'їзд</span>
+                                <input className='delivery-input'
+                                value={address} onChange={handleAdressChange} />
+                            </div>
+
+                            <div className='confirm-delivery-category' id='row-category'>
+                                <span className='delivery-category-title' type='text'>Квартира</span>
+                                <input className='delivery-input'
+                                value={address} onChange={handleAdressChange} />
+                            </div>
+                        </div>
+                    </>
                     }
 
                 </form>
@@ -148,7 +175,17 @@ function ConfirmOrderPage() {
                     <div className='all-price-number-delivery'>{price} UAH</div>
                 </div>
 
-                <button className='confirm-delivery-button' onClick={navigateToFinalOrder}>
+                <button className='confirm-delivery-button' 
+                onClick={(e) => {
+                    e.preventDefault();
+                    const form = document.getElementById('delivery-form');
+                    if (form.checkValidity()) {
+                        navigateToFinalOrder();
+                    } else {
+                        form.reportValidity();
+                    }
+                }}
+                >
                     ДАЛІ
                 </button>
 
