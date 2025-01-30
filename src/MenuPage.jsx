@@ -229,7 +229,7 @@ function MenuItem({ item, openDialog }) {
     return (
         <div className="menu-item" onClick={() => openDialog(item)}>
             <div className="item-description">
-                <h3 className="item-name">{item.name}</h3>
+                <div className="item-name">{item.name}</div>
                 <h3 className="item-price">{item.price} UAH</h3>
                 <p className="item-description-text">
                     {isExpanded || !isLongText ? 

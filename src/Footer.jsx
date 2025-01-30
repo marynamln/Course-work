@@ -64,7 +64,7 @@ function Footer() {
                     <img className='elem-svg' src={phoneSvg} />
                     <div className='info'>
                         <div className='info-title'>Телефон:</div>
-                        <div className='info-text'>123 456 78 90</div>
+                        <div className='info-text'>+380123456789</div>
                     </div>
                     <img className='copy-svg' src={copySvg} onClick={handleCopy} />
                     {isCopied && (

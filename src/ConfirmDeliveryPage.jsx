@@ -89,11 +89,11 @@ function ConfirmOrderPage() {
 
     return (
         <div className='page'>
-            <header className='header'>
+            <header className='header' id='long'>
                 <button className="icon" onClick={navigateToConfirmOrder} >
                     <img className='left-svg' src={leftSvg} />
                 </button>
-                <h2 className='page-title'>Підтвердити замовлення</h2>
+                <h3 className='page-title-long'>Підтвердити замовлення</h3>
             </header>
 
             <main className='main'>
@@ -143,19 +143,19 @@ function ConfirmOrderPage() {
 
                         <div className='confirm-delivery-category-row'>
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='text'>Будинок*</span>
+                                <span className='delivery-category-title' type='number'>Будинок*</span>
                                 <input className='delivery-input'
                                 value={address} onChange={handleAdressChange}  required />
                             </div>
 
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='text'>Під'їзд</span>
+                                <span className='delivery-category-title' type='number'>Під'їзд</span>
                                 <input className='delivery-input'
                                 value={address} onChange={handleAdressChange} />
                             </div>
 
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='text'>Квартира</span>
+                                <span className='delivery-category-title' type='number'>Квартира</span>
                                 <input className='delivery-input'
                                 value={address} onChange={handleAdressChange} />
                             </div>

@@ -8,6 +8,7 @@ import FeedbackPage from './FeedbackPage';
 import ConfirmOrderPage from './ConfirmOrderPage';
 import ConfirmDeliveryPage from './ConfirmDeliveryPage';
 import FinalOrderPage from './FinalOrderPage';
+import FeedbackFinal from './FeedbackFinal';
 import './styles/HomePage.css'
 import './styles/MenuPage.css'
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/confirm-order" element={<ConfirmOrderPage/>} />
       <Route path="/confirm-order/confirm-delivery" element={<ConfirmDeliveryPage/>} />
       <Route path='/confirm-order/confirm-delivery/your-order' element={<FinalOrderPage/>} />
+      <Route path='/your-feedback' element={<FeedbackFinal/>} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>   

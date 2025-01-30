@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 10px;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-dark);
 }
   
 .call-button {
@@ -12,15 +13,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 19px;
-    border-color: #dadada8a;
-    background-color: white;
-    border: 1px solid #dadada8a;
+    gap: 15px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
     border-radius: 5px;
-    padding: 20px 0 20px 0;
+    padding: 15px 0 15px 0;
     width: 100%;
     font-size: 1.3rem;
-    font-weight: 580;
+    font-weight: 500;
 }
 
 .call-svg {

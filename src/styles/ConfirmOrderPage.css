@@ -8,14 +8,14 @@
     flex-direction: column;
     margin: 15px 15px 0 15px;
     border-radius: 5px 5px 0 0;
-    border: 1px solid #dadada8a;
+    border: 1px solid var(--color-dark);
     border-bottom: none;
   }
   
   .menu-item-delivery {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #dadada8a;
+    border-bottom: 1px solid var(--color-dark);
     padding: 10px;
     align-items: flex-start;
     justify-content: space-between;
@@ -44,7 +44,7 @@
   
   .order-total-delivery {
     margin: 0 15px 15px 15px;
-    border: 1px solid #dadada8a;
+    border: 1px solid var(--color-dark);
     border-top: none;
     border-radius: 0 0 5px 5px;
     display: flex;
@@ -52,7 +52,7 @@
     padding: 10px;
     align-items: center;
     justify-content: space-between;
-    background-color: #f9f9f9;
+    background-color: var(--color-light);
   }
   
   .all-price-number-delivery, .all-price-text-delivery {
@@ -89,13 +89,13 @@
 
   .delivery-select {
     padding: 10px;
-    border: 1px solid #dadada8a;
+    border: 1px solid var(--color-dark);
     border-radius: 5px;
   }
 
   .delivery-input {
     padding: 10px;
-    border: 1px solid #dadada8a;
+    border: 1px solid var(--color-dark);
     border-radius: 5px;
   }
 
@@ -103,7 +103,7 @@
     margin: 15px;
     padding: 15px;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     width: calc(100% - 30px);
@@ -113,9 +113,9 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #dadada8a;
-    border-top: 1px solid #dadada8a;
+    background-color: var(--color-light);
+    border-bottom: 1px solid var(--color-dark);
+    border-top: 1px solid var(--color-dark);
     gap: 15px;
   }
 
@@ -150,7 +150,7 @@
   .exit {
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     font-size: large;

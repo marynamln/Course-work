@@ -4,7 +4,7 @@ import plusSvg from "./assets/svg/plus.svg";
 import minusSvg from "./assets/svg/minus.svg";
 import trashSvg from "./assets/svg/trash.svg";
 import './styles/MakeOrderPage.css';
-import rightSvg from './assets/svg/right.svg';
+import rightSvg from './assets/svg/right copy.svg';
 
 const Order = ({ item, updateTotalAmount, totalAmount, updateOrderItems, orderItems }) => {
 
@@ -64,8 +64,7 @@ const Order = ({ item, updateTotalAmount, totalAmount, updateOrderItems, orderIt
                                                     e.stopPropagation();
                                                     handleIncrement();
                                                     setIsPopupVisible(true);}}>
-              <img className="plus-svg" src={plusSvg} alt="plus" />
-              ЗАМОВИТИ
+              + ЗАМОВИТИ
             </button>
           </div>    
         ) : (

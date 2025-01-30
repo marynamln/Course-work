@@ -18,9 +18,9 @@
 }
 
 .menu-category {
-  border-color: #dadada8a;
+  border-color: var(--color-dark);
   background-color: white;
-  border: 1px solid #dadada8a;
+  border: 1px solid var(--color-dark);
   border-radius: 5px;
   padding: 8px 10px 8px 10px;
   font-weight: 400;
@@ -28,24 +28,24 @@
 }
 
 .menu-category.active {
-  color: #28a745;
-  border: 1.5px solid #28a745;
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
 }
 
 .menu-category-title {
-  border-bottom: 1px solid #dadada8a;
-  border-top: 1px solid #dadada8a;
+  border-bottom: 1px solid var(--color-dark);
+  border-top: 1px solid var(--color-dark);
   padding: 15px;
   font-weight: 1000;
   font-size: 1.2rem;
-  background-color: #f9f9f9;
+  background-color: var(--color-light);
 }
 
 .menu-item {
   display: flex;
   flex-direction: row;
   padding: 15px;
-  border-bottom: 1px solid #dadada8a;
+  border-bottom: 1px solid var(--color-dark);
 }
 
 .item-description {
@@ -61,13 +61,24 @@
   flex-direction: column;
   width: 30%;
   align-items: center;
-  justify-content: center;
 }
 
 .photo {
   width: 110px;
   height: auto;
   border-radius: 5px;
+}
+
+.item-price {
+  color: var(--primary-color);
+}
+
+.item-name {
+  font-weight: 800;
+}
+
+.item-description-text, .item-weight {
+  font-size: 12px;
 }
 
 .up {
@@ -77,14 +88,14 @@
   justify-content: center;
   width: 100%;
   padding: 10px;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #dadada8a;
+  background-color: var(--color-light);
+  border-bottom: 1px solid var(--color-dark);
 }
 
 .back-button {
-  border-color: #dadada8a;
-  background-color: white;
-  border: 1px solid #dadada8a;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
   border-radius: 5px;
   padding: 10px;
   width: 100%;

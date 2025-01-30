@@ -78,11 +78,11 @@ function ConfirmOrderPage() {
 
     return (
         <div className='page'>
-            <header className='header'>
+            <header className='header' id='long'>
                 <button className="icon" onClick={navigateToOrder} >
                     <img className='left-svg' src={leftSvg} />
                 </button>
-                <h2 className='page-title'>Перевірте замовлення</h2>
+                <h3 className='page-title-long'>Перевірте замовлення</h3>
             </header>
 
             <main className='main'>
