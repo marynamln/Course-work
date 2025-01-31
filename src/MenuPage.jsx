@@ -226,6 +226,22 @@ function MenuItem({ item, openDialog }) {
     const [isExpanded, setIsExpanded] = React.useState(false);
     const isLongText = item.description.length > 40;
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+            if (window.innerWidth >= 768) {
+                setIsExpanded(true);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="menu-item" onClick={() => openDialog(item)}>
             <div className="item-description">
@@ -263,60 +279,3 @@ function MenuItem({ item, openDialog }) {
 }
 
 export default MenuPage;
-
-{/* <header className='header'>
-    <button className="icon" onClick={navigateHome}>
-        <img className='left-svg' src={leftSvg} />
-    </button>
-    <h2 className='page-title'>МЕНЮ</h2>
-    <button className="icon">
-        <img className='search-svg' src={searchSvg} />
-    </button>
-</header> */}
-
-{/* <nav className='menu-category-list'>
-                    <button className='menu-category' data-category="salads">Салати</button>
-                    <button className='menu-category' data-category="soups">Супи</button>
-                    <button className='menu-category' data-category="main courses">Другі страви</button>
-                    <button className='menu-category' data-category="desserts">Десерти</button>
-                    <button className='menu-category' data-category="coffe">Кава</button>
-                    <button className='menu-category' data-category="tea">Чай</button>
-                    <button className='menu-category' data-category="cold drinks">Холодні напої</button>
-                    <button className='menu-category' data-category="alcoholic drinks">Алкогольні напої</button>
-                </nav>
-
-                <h1 className='menu-category-title'>
-                    САЛАТИ
-                </h1>
-                <div className='menu-item'>
-                    <div className='item-description'>
-                        <h3 className='item-name'>Салат із телятиною та в'яленими томатами</h3>
-                        <h3 className='item-price'>250 UAH</h3>
-                        <div className='item-description'>Мікс-салат, телятина ростбіф, в'ялені томати, 
-                            цибуля фіолетова, печериці гриль, картопля запечена.
-                        </div>
-                        <div className='item-weight'>340г</div>
-                    </div>
-                    <div className='item-photo'>
-                        <img className='photo' src={salad} />
-                    </div>
-                </div> */}
-
-                {/* {items.map((item, index) => (
-                                <div key={index} className="menu-item">
-                                    <div className="item-description">
-                                        <h3 className="item-name">{item.name}</h3>
-                                        <h3 className="item-price">{item.price} UAH</h3>
-                                        <p className="item-description-text">{item.description}</p>
-                                        <p className="item-weight">{item.weight}</p>
-                                    </div>
-                                    <div className="item-photo">
-                                        <img
-                                            className="photo"
-                                            src={item.image}
-                                            alt={item.name}
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                </div>
-                            ))} */}

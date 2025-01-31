@@ -265,6 +265,22 @@ function MenuItem({ item, openDialog, updateTotalAmount, totalAmount, updateOrde
     const [isExpanded, setIsExpanded] = useState(false);
     const isLongText = item.description.length > 40;
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+            if (window.innerWidth >= 768) {
+                setIsExpanded(true);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="menu-item" onClick={() => openDialog(item)}>
             <div className="item-description">

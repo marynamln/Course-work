@@ -18,6 +18,7 @@ function HomePage() {
     };
 
     const navigateToOrder = () => {
+        // localStorage.clear();
         navigate('/makeorder');
     };
 
