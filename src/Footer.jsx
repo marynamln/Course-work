@@ -124,7 +124,9 @@ function Footer() {
                             <img className='elem-svg' src={fbSvg} />
                         </a>
                 </div>
-
+            </div>
+            
+            <div className='information-right'>
                 <div className='social-media'>
                     <div className='sm-text'>Розташування</div>
                 </div>

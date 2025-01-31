@@ -68,7 +68,7 @@
   margin-left: auto;
 }
   
-.information {
+.information, .information-right {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -102,4 +102,70 @@
 .sm-text {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px;
+}
+
+@media (min-width: 768px) { 
+
+  /* footer */
+  
+  .footer-homepage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .information, .information-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 15px;
+    width: 50%;
+  }
+
+  .information-right {
+    padding: 10px;
+  }
+
+  .map {
+    width: 100%;
+    height: 300px;
+    border: 1px solid var(--color-dark);
+    border-radius: 5px;
+  }
+
+  /* homepage */
+
+  .img-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .title-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+  }
+
+  .rest-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) { 
+  /* Великі екрани (ноутбуки, десктопи) */
 }

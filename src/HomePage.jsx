@@ -38,6 +38,7 @@ function HomePage() {
                 </section>
 
                 <section className="categories">
+
                     <nav className="category-list">
                         <button className="category" onClick={navigateToMenu}>МЕНЮ
                             <img className='right-arrow' src={rightSvg} />
