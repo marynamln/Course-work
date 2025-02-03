@@ -70,3 +70,10 @@
   color: white;
   padding: 10px 15px 10px 15px;
 }
+
+@media (min-width: 1024px) { 
+  
+    .order-summary-popup {
+      margin: 0 250px 30px 250px;
+    }
+  }

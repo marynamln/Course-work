@@ -20,7 +20,9 @@ function FeedbackFinal () {
                 <button className="icon" onClick={navigateHome}>
                     <img className='left-svg' src={leftSvg} />
                 </button>
-                <h2 className='page-title-long'>НАДІСЛАТИ ВІДГУК</h2>
+                <div className='main-title'>
+                    <h2 className='page-title-long'>НАДІСЛАТИ ВІДГУК</h2>
+                </div>
             </header>
 
             <main className='page-feedback'>

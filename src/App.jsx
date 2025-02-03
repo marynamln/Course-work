@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import HomePage from './HomePage';
 import MenuPage from './MenuPage';
 import ContactsPage from './ContactsPage';
@@ -13,6 +13,12 @@ import './styles/HomePage.css'
 import './styles/MenuPage.css'
 
 function App() {
+
+  const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
   return (
     <Routes>

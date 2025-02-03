@@ -82,7 +82,10 @@ function ConfirmOrderPage() {
                 <button className="icon" onClick={navigateToOrder} >
                     <img className='left-svg' src={leftSvg} />
                 </button>
-                <h3 className='page-title-long'>Перевірте замовлення</h3>
+                
+                <div className='main-title'>
+                    <h3 className='page-title-long'>Перевірте замовлення</h3>
+                </div>
             </header>
 
             <main className='main'>
@@ -108,7 +111,7 @@ function ConfirmOrderPage() {
                 </div>
 
                 <button className="next-button" onClick={navigateConfirmDelivery}>ДАЛІ</button>
-                <div className='bottom'></div>
+                
                 </>
                 :
                 <div className='no-order'>

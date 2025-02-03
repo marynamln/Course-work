@@ -51,12 +51,15 @@ function FeedbackPage () {
                 <button className="icon" onClick={navigateHome}>
                     <img className='left-svg' src={leftSvg} />
                 </button>
-                <h2 className='page-title-long'>НАДІСЛАТИ ВІДГУК</h2>
+                <div className='main-title'>
+                    <h2 className='page-title-long'>НАДІСЛАТИ ВІДГУК</h2>
+                </div>
             </header>
 
             <main className='page'>
                 <div className='feedback-title'>Оцініть нас!</div>
 
+                <div className='feedback-stars-section'>
                 <div className='stars-section'>
                     <div className='stars-title'>Страви</div>
                     <div className="stars">
@@ -77,6 +80,7 @@ function FeedbackPage () {
                         <span className="star-service" data-value="4">★</span>
                         <span className="star-service" data-value="5">★</span>
                     </div>
+                </div>
                 </div>
 
                 <div className='hint'>Натисніть на зірку</div>

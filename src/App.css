@@ -40,9 +40,16 @@ button, a {
   white-space: nowrap;
 }
 
-#long {
+/* #long {
   justify-content: flex-start;
   gap: 15px;
+} */
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .page-title-long {
@@ -238,17 +245,18 @@ button, a {
 }
 
 .next-button {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  margin: 0 15px 15px 15px;
+  right: 0; */
+  margin-bottom: 30px;
   padding: 15px;
   border-radius: 5px;
   background-color: var(--primary-color);
   color: white;
   border: none;
-  z-index: 1000;
+  width: 100%;
+  /* z-index: 1000; */
 }
 
 .comment-section {
@@ -258,7 +266,6 @@ button, a {
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
-  padding-bottom: 90px;
 }
 
 .comment-title {
@@ -388,4 +395,33 @@ button, a {
 .page-feedback {
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 1024px) { 
+  .information {
+    padding-left: 250px;
+  }
+
+  .information-right {
+    padding-right: 250px;
+  }
+
+  .feedback-input-section {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
+  .feedback-stars-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .copy-notification {
+    bottom: 30px;
+    left: 250px;
+    right: 250px;
+  }
 }

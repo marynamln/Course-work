@@ -28,3 +28,10 @@
     width: 1.5rem;
     height: 1.5rem; 
 }
+
+@media (min-width: 1024px) { 
+    .call-section {
+      padding-right: 250px;
+      padding-left: 250px;
+    }
+}
