@@ -2,7 +2,7 @@
 
 :root {
   font-family: "Comfortaa", serif;
-  line-height: 1.5;
+  line-height: 1.2;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,20 +18,7 @@
   /* #c8b7ac #dadada8a */
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--primary-color);
   outline: none;
 }
-
-/*@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

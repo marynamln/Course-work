@@ -86,7 +86,7 @@ function FeedbackPage () {
                 <div className='hint'>Натисніть на зірку</div>
 
                 <div className='feedback-input-section'>
-                    <textarea className='feedback-textarea' type='text' rows="3" placeholder="Коментар"
+                    <textarea className='feedback-textarea' type='text' rows="5" placeholder="Коментар"
                     value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     <div className='feedback-input-title'>Залиште ваші контакти</div>
                     <input className='feedback-input' type='tel' placeholder="Телефон"/>

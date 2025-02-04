@@ -16,6 +16,13 @@ button, a {
   cursor: pointer;
 }
 
+select, input {
+  color: var(--text-color);
+  background-color: white;
+  height: 3rem;
+  font-size: 14px;
+}
+
 .page, .page-feedback {
   display: flex;
   flex-direction: column;
@@ -126,6 +133,7 @@ button, a {
   background: none;
   margin-left: auto;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .shedule-svg {
@@ -245,18 +253,13 @@ button, a {
 }
 
 .next-button {
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  margin-bottom: 30px;
+  margin: 15px;
   padding: 15px;
   border-radius: 5px;
   background-color: var(--primary-color);
   color: white;
   border: none;
-  width: 100%;
-  /* z-index: 1000; */
+  width: calc(100% - 30px);
 }
 
 .comment-section {
@@ -290,7 +293,7 @@ button, a {
   padding: 15px;
   align-items: center;
   justify-content: center;
-  font-size: larger;
+  font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 15px;
@@ -306,13 +309,14 @@ button, a {
 }
 
 .feedback-input {
-  height: 2.5rem;
+  height: 2.8rem;
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
   border: 1px solid var(--color-dark);
   font-weight: 500;
   color: var(--text-color-gray);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
 }
 
 .feedback-textarea {
@@ -320,13 +324,14 @@ button, a {
   border-radius: 5px;
   border: 1px solid var(--color-dark);
   font-weight: 500;
+  font-size: 1rem;
   color: var(--text-color-gray);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .feedback-input-title {
   color: var(--text-color-gray);
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
@@ -344,10 +349,12 @@ button, a {
   font-size: 30px;
   cursor: pointer;
 }
+
 .star-service, .star-dish {
   color: lightgray;
   transition: color 0.3s;
 }
+
 .star-service.active, .star-dish.active {
   color: var(--primary-color);
 }
