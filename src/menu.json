@@ -6,7 +6,7 @@
             "price": 239,
             "description": "Мікс-салат, телятина ростбіф, в'ялені томати, цибуля фіолетова, печериці гриль, картопля запечена.",
             "weight": "340г",
-            "image": "../public/photos/salad-1.jpg"
+            "image": "/photos/salad-1.jpg"
         },
         {
             "id": 2,
@@ -14,7 +14,7 @@
             "price": 274,
             "description": "Мікс-салат, лосось гриль, авокадо, апельсин, лимон.",
             "weight": "350г",
-            "image": "../public/photos/salad-2.jpg"
+            "image": "/photos/salad-2.jpg"
         }
     ],
     "Другі страви": [
@@ -24,7 +24,7 @@
             "price": 220,
             "description": "Паста, бекон, вершки, пармезан.",
             "weight": "350г",
-            "image": "../public/photos/pasta-1.jpg"
+            "image": "/photos/pasta-1.jpg"
         },
         {
             "id": 4,
@@ -32,7 +32,7 @@
             "price": 214,
             "description": "Паста, гриби, перець, авокадо.",
             "weight": "400г",
-            "image": "../public/photos/pasta-2.jpg"
+            "image": "/photos/pasta-2.jpg"
         }
     ],
     "Супи": [
@@ -42,7 +42,7 @@
             "price": 120,
             "description": "Традиційний український борщ з буряком, капустою, м'ясом та часниковими пампушками.",
             "weight": "400г",
-            "image": "../public/photos/soup-1.jpg"
+            "image": "/photos/soup-1.jpg"
         },
         {
             "id": 6,
@@ -50,7 +50,7 @@
             "price": 140,
             "description": "Ніжний крем-суп з печериць та білих грибів, подається з грінками.",
             "weight": "350г",
-            "image": "../public/photos/soup-2.jpg"
+            "image": "/photos/soup-2.jpg"
         },
         {
             "id": 7,
@@ -58,7 +58,7 @@
             "price": 180,
             "description": "Гострий тайський суп з кокосовим молоком, креветками, грибами та лаймом.",
             "weight": "400г",
-            "image": "../public/photos/soup-3.jpg"
+            "image": "/photos/soup-3.jpg"
         }
     ],
     "Десерти": [
@@ -68,7 +68,7 @@
             "price": 150,
             "description": "Класичний італійський десерт з маскарпоне, савоярді та кавою.",
             "weight": "180г",
-            "image": "../public/photos/dessert-1.jpg"
+            "image": "/photos/dessert-1.jpg"
         },
         {
             "id": 9,
@@ -76,7 +76,7 @@
             "price": 160,
             "description": "Ніжний чізкейк з вершковим сиром на основі з печива.",
             "weight": "200г",
-            "image": "../public/photos/dessert-2.jpg"
+            "image": "/photos/dessert-2.jpg"
         },
         {
             "id": 10,
@@ -84,7 +84,7 @@
             "price": 140,
             "description": "Теплий штрудель з яблуками, корицею та родзинками, подається з ванільним соусом.",
             "weight": "220г",
-            "image": "../public/photos/dessert-3.jpg"
+            "image": "/photos/dessert-3.jpg"
         }
     ],
     "Кава": [
@@ -94,7 +94,7 @@
             "price": 50,
             "description": "Класична міцна кава, подається з лимоном або цукром за бажанням.",
             "weight": "50мл",
-            "image": "../public/photos/coffee-1.jpg"
+            "image": "/photos/coffee-1.jpg"
         },
         {
             "id": 12,
@@ -102,7 +102,7 @@
             "price": 70,
             "description": "Кава з молочною пінкою, прикрашена какао.",
             "weight": "200мл",
-            "image": "../public/photos/coffee-2.jpg"
+            "image": "/photos/coffee-2.jpg"
         },
         {
             "id": 13,
@@ -110,7 +110,7 @@
             "price": 80,
             "description": "Кава з молоком, карамельним сиропом та вершками.",
             "weight": "300мл",
-            "image": "../public/photos/coffee-3.jpg"
+            "image": "/photos/coffee-3.jpg"
         }
     ],
     "Чай": [
@@ -120,7 +120,7 @@
             "price": 60,
             "description": "Класичний зелений чай з Японії з тонким трав'яним ароматом.",
             "weight": "300мл",
-            "image": "../public/photos/tea-1.jpg"
+            "image": "/photos/tea-1.jpg"
         },
         {
             "id": 15,
@@ -128,7 +128,7 @@
             "price": 70,
             "description": "Чай з натуральним імбиром, лимоном та медом.",
             "weight": "350мл",
-            "image": "../public/photos/tea-2.jpg"
+            "image": "/photos/tea-2.jpg"
         },
         {
             "id": 16,
@@ -136,7 +136,7 @@
             "price": 60,
             "description": "Чорний ароматизований чай з нотками цитрусового бергамоту.",
             "weight": "300мл",
-            "image": "../public/photos/tea-3.jpg"
+            "image": "/photos/tea-3.jpg"
         }
     ],
     "Алкогольні напої": [
@@ -146,7 +146,7 @@
             "price": 120,
             "description": "Коктейль з рому, лайму, м'яти та газованої води.",
             "weight": "400мл",
-            "image": "../public/photos/cocktail-1.jpg"
+            "image": "/photos/cocktail-1.jpg"
         },
         {
             "id": 18,
@@ -154,7 +154,7 @@
             "price": 150,
             "description": "Класичний мікс віскі та коли з льодом.",
             "weight": "300мл",
-            "image": "../public/photos/cocktail-2.jpg"
+            "image": "/photos/cocktail-2.jpg"
         },
         {
             "id": 19,
@@ -162,7 +162,7 @@
             "price": 140,
             "description": "Коктейль на основі текіли, лаймового соку та апельсинового лікеру.",
             "weight": "250мл",
-            "image": "../public/photos/cocktail-3.jpg"
+            "image": "/photos/cocktail-3.jpg"
         }
     ]
 }

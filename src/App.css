@@ -227,6 +227,7 @@ select, input {
   border-radius: 5px;
   background-color: white;
   font-size: 16px;
+  height: 40px;
 }
 
 .search-delete-svg {
