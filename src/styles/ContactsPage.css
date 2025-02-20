@@ -33,5 +33,6 @@
     .call-section {
       padding-right: 250px;
       padding-left: 250px;
+      border: none;
     }
 }

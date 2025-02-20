@@ -10,7 +10,7 @@ import delSvg from './assets/svg/person-walking.svg'
 function FinalOrderPage() {
 
     const location = useLocation();
-    const { price, orderItems, name, tel, deliveryTime, deliveryType, address } = location.state;
+    const { price, orderItems, name, tel, deliveryTime, deliveryType, address, building, entrance, flat } = location.state;
 
     const navigate = useNavigate();
     const navigateHome = () => {
@@ -65,7 +65,10 @@ function FinalOrderPage() {
                             <img className='final-elem-svg' src={locationSvg} />
                             <div className='customer-contacts-group'>
                                 <div className='group-title'>Адреса</div>
-                                <div className='group-info'>{address}</div>
+                                <div className='group-info'>{address}, {building}
+                                    {entrance && `, під'їзд ${entrance}`}
+                                    {flat && `, квартира ${flat}`}
+                                </div>
                             </div>
                         </div>
                     }

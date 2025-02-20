@@ -162,3 +162,9 @@
     width: 3rem;
     height: auto;
   }
+
+  @media(min-width: 1024px) {
+    .customer-contacts {
+      border: none;
+    }
+  }

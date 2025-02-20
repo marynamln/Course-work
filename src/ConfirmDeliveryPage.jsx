@@ -50,6 +50,9 @@ function ConfirmOrderPage() {
     const [name, setName] = useState('');
     const [tel, setTel] = useState('');
     const [address, setAddress] = useState('');
+    const [building, setBuild] = useState('');
+    const [entrance, setEntrance] = useState('');
+    const [flat, setFlat] = useState('');
     const [deliveryTime, setDeliveryTime] = useState('asap');
     const [deliveryType, setDeliveryType] = useState('pickup');
 
@@ -73,6 +76,18 @@ function ConfirmOrderPage() {
         setAddress(e.target.value);
     };
 
+    const handleBuildChange = (e) => {
+        setBuild(e.target.value);
+    };
+
+    const handleEntranceChange = (e) => {
+        setEntrance(e.target.value);
+    };
+
+    const handleFlatChange = (e) => {
+        setFlat(e.target.value);
+    };
+
     const navigateToFinalOrder = () => {
         navigate('/confirm-order/confirm-delivery/your-order', { 
             state: { 
@@ -82,7 +97,10 @@ function ConfirmOrderPage() {
                 tel, 
                 deliveryTime, 
                 deliveryType,
-                address
+                address,
+                building,
+                entrance,
+                flat
             }
         });
     };
@@ -131,36 +149,36 @@ function ConfirmOrderPage() {
                     </div>
 
                     <div className='confirm-delivery-category'>
-                        <span className='delivery-category-title' type='tel'>Телефон*</span>
-                        <input className='delivery-input'
+                        <span className='delivery-category-title'>Телефон*</span>
+                        <input className='delivery-input' type='tel'
                         value={tel} onChange={handleTelChange}  required />
                     </div>
 
                     {deliveryType === 'delivery' &&
                     <>
                         <div className='confirm-delivery-category'>
-                            <span className='delivery-category-title' type='text'>Вулиця*</span>
-                            <input className='delivery-input'
+                            <span className='delivery-category-title'>Вулиця*</span>
+                            <input className='delivery-input' type='text'
                             value={address} onChange={handleAdressChange}  required />
                         </div>
 
                         <div className='confirm-delivery-category-row'>
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='number'>Будинок*</span>
-                                <input className='delivery-input'
-                                value={address} onChange={handleAdressChange}  required />
+                                <span className='delivery-category-title'>Будинок*</span>
+                                <input className='delivery-input' type='number'
+                                value={building} onChange={handleBuildChange}  required />
                             </div>
 
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='number'>Під'їзд</span>
-                                <input className='delivery-input'
-                                value={address} onChange={handleAdressChange} />
+                                <span className='delivery-category-title'>Під'їзд</span>
+                                <input className='delivery-input' type='number'
+                                value={entrance} onChange={handleEntranceChange} />
                             </div>
 
                             <div className='confirm-delivery-category' id='row-category'>
-                                <span className='delivery-category-title' type='number'>Квартира</span>
-                                <input className='delivery-input'
-                                value={address} onChange={handleAdressChange} />
+                                <span className='delivery-category-title'>Квартира</span>
+                                <input className='delivery-input' type='number'
+                                value={flat} onChange={handleFlatChange} />
                             </div>
                         </div>
                     </>

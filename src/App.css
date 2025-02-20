@@ -417,6 +417,7 @@ select, input {
   .feedback-input-section {
     padding-left: 250px;
     padding-right: 250px;
+    border: none;
   }
 
   .feedback-stars-section {

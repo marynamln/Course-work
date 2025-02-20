@@ -184,7 +184,7 @@ function MakeOrderPage() {
                 )}
             </header>
 
-            <main className='main'>
+            <main className='main-menu'>
                 
             {searchText ? (
                     <>

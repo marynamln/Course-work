@@ -51,7 +51,7 @@ function Footer() {
                     <img className='elem-svg' src={mapSvg} />
                     <div className='info'>
                         <div className='info-title'>Адреса:</div>
-                        <div className='info-text'>м. Київ, вул. Київська, 15</div>
+                        <div className='info-text'>вулиця Хрещатик, 38, Київ, 01001</div>
                     </div>
                     <img className='copy-svg' src={copySvg} onClick={handleCopy} />
                     {isCopied && (
@@ -131,13 +131,14 @@ function Footer() {
                     <div className='sm-text'>Розташування</div>
                 </div>
                 <iframe className='map'
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325516.56944126444!2d30.203037955733567!3d50.40200748684135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNGX0LIsIDAyMDAw!5e0!3m2!1suk!2sua!4v1736243933075!5m2!1suk!2sua"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1270.382450485187!2d30.519173338912626!3d50.445479600962194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5660c5dbb9%3A0xa86885b4f9b203be!2z0LLRg9C70LjRhtGPINCl0YDQtdGJ0LDRgtC40LosIDM4LCDQmtC40ZfQsiwgMDEwMDE!5e0!3m2!1suk!2sua!4v1740061611293!5m2!1suk!2sua"
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>               
             </div>
         </footer>
+        
     )
 }
 

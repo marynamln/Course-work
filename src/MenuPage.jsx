@@ -150,7 +150,7 @@ function MenuPage() {
             </header>
   
 
-            <main className='main'>
+            <main className='main-menu'>
                 {searchText ? (
                     <>
                     {filteredItems.length > 0 ? (
