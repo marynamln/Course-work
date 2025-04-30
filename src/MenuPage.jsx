@@ -6,6 +6,7 @@ import leftSvg from './assets/svg/left.svg';
 import menuData from './menu.json';
 import upSvg from './assets/svg/chevron-up.svg';
 import closeSvg from './assets/svg/xmark.svg';
+import deleteSvg from './assets/svg/delete-svgrepo-com.svg';
 import Footer from "./Footer";
 
 function MenuPage() {
@@ -143,7 +144,7 @@ function MenuPage() {
                             autoFocus
                         />
                         <button className="icon" onClick={clearInput}>
-                            <img className="search-delete-svg" src={closeSvg} alt="Close" />
+                            <img className="search-delete-svg" src={deleteSvg} alt="Close" />
                         </button>
                     </div>
                 )}

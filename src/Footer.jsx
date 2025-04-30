@@ -48,12 +48,12 @@ function Footer() {
         <footer className="footer-homepage">
             <div className="information">
                 <div className='info-item'>
-                    <img className='elem-svg' src={mapSvg} />
+                    <img className='elem-svg' src={mapSvg} alt='map-icon'/>
                     <div className='info'>
                         <div className='info-title'>Адреса:</div>
                         <div className='info-text'>вулиця Хрещатик, 38, Київ, 01001</div>
                     </div>
-                    <img className='copy-svg' src={copySvg} onClick={handleCopy} />
+                    <img className='copy-svg' src={copySvg} onClick={handleCopy} alt='copy-icon'/>
                     {isCopied && (
                         <div className="copy-notification">
                             ДАНІ СКОПІЙОВАНО
@@ -61,12 +61,12 @@ function Footer() {
                     )}
                 </div>
                 <div className='info-item'>
-                    <img className='elem-svg' src={phoneSvg} />
+                    <img className='elem-svg' src={phoneSvg} alt='phone-icon'/>
                     <div className='info'>
                         <div className='info-title'>Телефон:</div>
                         <div className='info-text'>+380123456789</div>
                     </div>
-                    <img className='copy-svg' src={copySvg} onClick={handleCopy} />
+                    <img className='copy-svg' src={copySvg} onClick={handleCopy} alt='copy-icon'/>
                     {isCopied && (
                         <div className="copy-notification">
                             ДАНІ СКОПІЙОВАНО
@@ -74,12 +74,12 @@ function Footer() {
                     )}
                 </div>
                 <div className='info-item'>
-                    <img className='elem-svg' src={mailSvg} />
+                    <img className='elem-svg' src={mailSvg} alt='mail-icon'/>
                     <div className='info'>
                         <div className='info-title'>Ел. пошта:</div>
                         <div className='info-text'>restaurant@gmail.com</div>
                     </div>
-                    <img className='copy-svg' src={copySvg} onClick={handleCopy} />
+                    <img className='copy-svg' src={copySvg} onClick={handleCopy} alt='copy-icon'/>
                     {isCopied && (
                         <div className="copy-notification">
                             ДАНІ СКОПІЙОВАНО
@@ -87,13 +87,13 @@ function Footer() {
                     )}
                 </div>
                 <div className='info-item'>
-                    <img className='elem-svg' src={calendarSvg} />
+                    <img className='elem-svg' src={calendarSvg} alt='calendar-icon'/>
                     <div className='info'>
                         <div className='info-title'>Робочий час:</div>
                         <div className='info-text'>{schedule[currentDay].hours}</div>
                     </div>
                     <button className='schedule' onClick={togglePopup}>
-                        Розклад<img className='shedule-svg' src={downSvg} />
+                        Розклад<img className='shedule-svg' src={downSvg} alt='down-arrow'/>
                     </button>
 
                     {isPopupVisible && (
@@ -118,10 +118,10 @@ function Footer() {
                 </div>
                 <div className='sm-svg'>
                         <a href='https://www.instagram.com/' target="_blank" className='sm-link'>
-                            <img className='elem-svg' src={instSvg} />
+                            <img className='elem-svg' src={instSvg} alt='instagram-icon'/>
                         </a>
                         <a href='https://www.facebook.com/?locale=uk_UA' target="_blank" className='sm-link'>
-                            <img className='elem-svg' src={fbSvg} />
+                            <img className='elem-svg' src={fbSvg} alt='facebook-icon'/>
                         </a>
                 </div>
             </div>
@@ -130,7 +130,7 @@ function Footer() {
                 <div className='social-media'>
                     <div className='sm-text'>Розташування</div>
                 </div>
-                <iframe className='map'
+                <iframe className='map' title="map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1270.382450485187!2d30.519173338912626!3d50.445479600962194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5660c5dbb9%3A0xa86885b4f9b203be!2z0LLRg9C70LjRhtGPINCl0YDQtdGJ0LDRgtC40LosIDM4LCDQmtC40ZfQsiwgMDEwMDE!5e0!3m2!1suk!2sua!4v1740061611293!5m2!1suk!2sua"
                     allowFullScreen=""
                     loading="lazy"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/HomePage.css'
 import './App.css'
@@ -34,7 +34,7 @@ function HomePage() {
                         <h1 className="rest-title">REST</h1>
                     </div>
                     <div className="image-container">
-                        <img className="rest-image" src={restaurantImage} alt="Restaurant Photo" loading="lazy" />
+                        <img className="rest-image" src={restaurantImage} alt="Restaurant Photo" />
                     </div>
                 </section>
 
@@ -42,16 +42,16 @@ function HomePage() {
 
                     <nav className="category-list">
                         <button className="category" onClick={navigateToMenu}>МЕНЮ
-                            <img className='right-arrow' src={rightSvg} />
+                            <img className='right-arrow' src={rightSvg} alt='right-arrow'/>
                         </button>
                         <button className="category" onClick={navigateToOrder}>ЗРОБИТИ ЗАМОВЛЕННЯ
-                            <img className='right-arrow' src={rightSvg} />
+                            <img className='right-arrow' src={rightSvg} alt='right-arrow'/>
                         </button>
                         <button className="category" onClick={navigateToContacts}>КОНТАКТИ
-                            <img className='right-arrow' src={rightSvg} />
+                            <img className='right-arrow' src={rightSvg} alt='right-arrow'/>
                         </button>
                         <button className="category" onClick={navigateToFeedback}>НАДІСЛАТИ ВІДГУК
-                            <img className='right-arrow' src={rightSvg} />
+                            <img className='right-arrow' src={rightSvg} alt='right-arrow'/>
                         </button>
                     </nav>
                 </section>

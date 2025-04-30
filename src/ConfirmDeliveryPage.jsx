@@ -113,12 +113,12 @@ function ConfirmOrderPage() {
                 </button>
                 
                 <div className='main-title'>
-                    <h3 className='page-title-long'>Підтвердити замовлення</h3>
+                    <h3 className='page-title-long'>Підтвердіть замовлення</h3>
                 </div>
             </header>
 
             <main className='main'>
-                <form className='confirm-delivery-categories' id='delivery-form'>
+                <form className='confirm-delivery-categories' id='delivery-form' autoComplete="on">
 
                     <div className='confirm-delivery-category'>
                         <span className='delivery-category-title'>Спосіб доставки</span>
@@ -145,13 +145,13 @@ function ConfirmOrderPage() {
                     <div className='confirm-delivery-category'>
                         <span className='delivery-category-title'>Ваше ім'я*</span>
                         <input className='delivery-input' type='text' 
-                        value={name} onChange={handleNameChange} required />
+                        value={name} onChange={handleNameChange} required autoComplete="given-name"/>
                     </div>
 
                     <div className='confirm-delivery-category'>
                         <span className='delivery-category-title'>Телефон*</span>
                         <input className='delivery-input' type='tel'
-                        value={tel} onChange={handleTelChange}  required />
+                        value={tel} onChange={handleTelChange}  required autoComplete="tel"/>
                     </div>
 
                     {deliveryType === 'delivery' &&
@@ -159,7 +159,7 @@ function ConfirmOrderPage() {
                         <div className='confirm-delivery-category'>
                             <span className='delivery-category-title'>Вулиця*</span>
                             <input className='delivery-input' type='text'
-                            value={address} onChange={handleAdressChange}  required />
+                            value={address} onChange={handleAdressChange}  required autoComplete="street-address"/>
                         </div>
 
                         <div className='confirm-delivery-category-row'>

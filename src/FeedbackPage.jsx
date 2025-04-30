@@ -30,6 +30,17 @@ function FeedbackPage () {
         handleStarClick("star-service", setServiceRating);
     }, []);
 
+    useEffect(() => {
+        const savedComment = localStorage.getItem("commentFeedback");
+        if (savedComment) {
+            setComment(savedComment);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("commentFeedback", comment);
+    }, [comment]);
+
     function handleStarClick(starClass, setRating) {
         const stars = document.querySelectorAll(`.${starClass}`);
 

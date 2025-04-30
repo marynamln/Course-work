@@ -1,15 +1,19 @@
 .menu-category-list {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   white-space: nowrap;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
+  scrollbar-width: thin;
+  overflow-x: scroll;
   gap: 5px;
   padding: 15px;
   scroll-behavior: smooth;
   position: sticky;
   top: 0;
   background-color: white;
+  scrollbar-gutter: stable;
+  border-bottom: 1px solid var(--color-dark);
 }
 
 .menu-category {
@@ -71,12 +75,12 @@
 }
 
 .item-name {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
 .item-description-text, .item-weight {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .up {

@@ -26,11 +26,7 @@ function ContactsPage() {
             <main className='page'>
                 <div className='call-section'>
                     <button className='call-button'
-                    onClick={() => {
-                        if (window.confirm("Ви дійсно хочете зателефонувати?")) {
-                            window.location.href = "tel:+380123456789";
-                        }
-                    }}>
+                    onClick={() => { window.location.href = "tel:+380123456789"; }}>
                         <img className='call-svg' src={phoneSvg} />
                         <div className='call-text'>Зателефонувати</div>
                     </button>

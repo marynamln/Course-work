@@ -2,7 +2,7 @@
 
 :root {
   font-family: "Comfortaa", serif;
-  line-height: 1.2;
+  line-height: 1.5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,8 +14,6 @@
   --color-light: #e2d8d645;
   --text-color-gray: #525252;
   --text-color: rgb(60 22 11);
-  /* #e2d8d645 #f9f9f9 */
-  /* #c8b7ac #dadada8a */
 }
 
 input:focus, textarea:focus, select:focus {

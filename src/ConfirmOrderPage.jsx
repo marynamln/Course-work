@@ -76,6 +76,18 @@ function ConfirmOrderPage() {
         });
     }; 
 
+    const [commentForOrder, setComment] = useState('');
+    useEffect(() => {
+        const savedComment = localStorage.getItem("commentForOrder");
+        if (savedComment) {
+            setComment(savedComment);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("commentForOrder", commentForOrder);
+    }, [commentForOrder]);
+
     return (
         <div className='page'>
             <header className='header' id='long'>
@@ -107,7 +119,8 @@ function ConfirmOrderPage() {
 
                 <div className='comment-section'>
                     <div className='comment-title'>Залиште коментар</div>
-                    <textarea className='comment' rows="5" placeholder="Введіть тут ваш коментар"></textarea>
+                    <textarea className='comment' rows="5" placeholder="Введіть тут ваш коментар" 
+                    value={commentForOrder} onChange={(e) => setComment(e.target.value)}></textarea>
                 </div>
 
                 <button className="next-button" onClick={navigateConfirmDelivery}>ДАЛІ</button>
