@@ -20,23 +20,32 @@ function MakeOrderPage() {
 
     const [activeCategory, setActiveCategory] = useState("");
 
+    // Прокручує сторінку до певної категорії
     const scrollToCategory = (category) => {
+        // Знаходить потрібну категорію за ID
         const element = document.getElementById(`category-${category}`);
         if (element) {
+            // Визначає висоту меню
             const offset = document.querySelector(".menu-category-list").offsetHeight;
+            // Обчислює точну позицію прокрутки з врахуванням зміщення
             const topPosition = element.getBoundingClientRect().top + window.pageYOffset - offset + 5;
     
             window.scrollTo({
                 top: topPosition,
-                behavior: "smooth",
+                behavior: "smooth", // Плавна анімація прокрутки
             });
         }
     };
 
+    // Якщо секція досягла верхньої межі, вона стає активною
+    // При зміні активної категорії оновлюється стан і прокручується меню до неї
     useEffect(() => {
         const handleScroll = () => {
             const offset = document.querySelector(".menu-category-list").offsetHeight || 0;
     
+            // Проходимо по всіх категоріях і для кожної обчислюємо його відстань до верхньої межі вікна
+            // Якщо ця відстань <= 0, секція вважається такою, що потрапила у "видиму" частину екрану
+            // Серед таких секцій остання, яка задовольняє умову, вважається активною
             let activeCategory = null;
             Object.keys(menuData).forEach((category) => {
                 const section = document.getElementById(`category-${category}`);
@@ -49,8 +58,8 @@ function MakeOrderPage() {
             });
     
             if (activeCategory) {
-                setActiveCategory(activeCategory);
-                scrollMenuToActiveCategory(activeCategory);
+                setActiveCategory(activeCategory); // Оновлює активну категорію
+                scrollMenuToActiveCategory(activeCategory); // Прокручує горизонтальне меню до неї
             }
         };
     
@@ -60,16 +69,20 @@ function MakeOrderPage() {
         };
     }, [menuData]);    
 
+    // Функція для прокручування горизонтального меню до активної категорії
     const scrollMenuToActiveCategory = (category) => {
         const activeButton = document.querySelector(`[data-category="${category}"]`);
         const menuList = document.querySelector(".menu-category-list");
     
         if (activeButton && menuList) {
+            // Отримуємо прямокутники для кнопки та списку меню
             const buttonRect = activeButton.getBoundingClientRect();
             const menuRect = menuList.getBoundingClientRect();
     
+            // Перевіряємо, чи кнопка виходить за межі видимої області меню
             if (buttonRect.left < menuRect.left || buttonRect.right > menuRect.right) {
                 menuList.scrollTo({
+                    // Вираховуємо відстань, щоб кнопка була по центру меню
                     left: activeButton.offsetLeft - menuList.offsetWidth / 2 + activeButton.offsetWidth / 2,
                     behavior: "smooth",
                 });
@@ -129,14 +142,17 @@ function MakeOrderPage() {
         return savedOrderItems ? JSON.parse(savedOrderItems) : {};
     });
 
+    // Оновлює список замовлених страв, додає, змінює кількість або видаляє
     const updateOrderItems = (itemId, quantity, item) => {
         setOrderItems(prev => {
             let updatedOrderItems;
     
+            // Якщо кількість 0 видаляємо із замовлення
             if (quantity === 0) {
                 const { [itemId]: removed, ...rest } = prev;
                 updatedOrderItems = rest;
             } else {
+                // Інакше — додаємо або оновлюємо кількість
                 updatedOrderItems = {
                     ...prev,
                     [itemId]: {
@@ -146,6 +162,7 @@ function MakeOrderPage() {
                 };
             }
     
+            // Зберігаємо оновлене замовлення в localStorage
             localStorage.setItem("orderItems", JSON.stringify(updatedOrderItems));
             return updatedOrderItems;
         });

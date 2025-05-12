@@ -24,19 +24,22 @@ function ConfirmOrderPage() {
 
     useEffect(() => {
         const generateTimeOptions = () => {
-            const now = new Date();
+            const now = new Date(); // Поточний час
             const options = [];
-            const endHour = 21;
+            const endHour = 21; // Кінцева година 21:00
 
+            // Округлюємо час
             const startMinutes = now.getMinutes();
             const roundedMinutes = Math.ceil(startMinutes / 30) * 60;
             now.setMinutes(roundedMinutes, 0, 0);
 
+            // Додаємо час з кроком у 30 хвилин до 21:00
             while (now.getHours() < endHour || (now.getHours() === endHour && now.getMinutes() === 0)) {
                 options.push(new Date(now.getTime()));
                 now.setMinutes(now.getMinutes() + 30);
             }
 
+            // Форматуємо час у формат HH:MM
             return options.map(time => {
                 const hours = time.getHours().toString().padStart(2, '0');
                 const minutes = time.getMinutes().toString().padStart(2, '0');
@@ -44,6 +47,7 @@ function ConfirmOrderPage() {
             });
         };
 
+        // Встановлюємо згенеровані варіанти часу в стан
         setTimeOptions(generateTimeOptions());
     }, []);
 
