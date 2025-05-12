@@ -14,12 +14,15 @@ import './styles/MenuPage.css'
 
 function App() {
 
+  // Використовуємо useLocation, щоб отримати поточний шлях
   const { pathname } = useLocation();
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
+  // Прокручує сторінку в початок
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, [pathname]); // спрацьовує щоразу, коли змінюється шлях
 
+  // Визначаємо маршрути для кожної сторінки
   return (
     <Routes>
       <Route path="/home" element={<HomePage/>} />

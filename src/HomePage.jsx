@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/HomePage.css'
 import './App.css'
@@ -8,7 +8,9 @@ import Footer from "./Footer"
 
 function HomePage() {
 
+    // Функції для навігації між сторінками додатку за допомогою useNavigate
     const navigate = useNavigate();
+
     const navigateToMenu = () => {
         navigate('/menu');
     };
@@ -18,7 +20,6 @@ function HomePage() {
     };
 
     const navigateToOrder = () => {
-        // localStorage.clear();
         navigate('/makeorder');
     };
 

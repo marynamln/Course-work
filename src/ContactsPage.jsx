@@ -25,6 +25,7 @@ function ContactsPage() {
 
             <main className='page'>
                 <div className='call-section'>
+                    {/* Кнопка для здійснення дзвінка відкриває телефонний додаток з номером */}
                     <button className='call-button'
                     onClick={() => { window.location.href = "tel:+380123456789"; }}>
                         <img className='call-svg' src={phoneSvg} />

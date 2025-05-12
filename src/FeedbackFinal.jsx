@@ -30,6 +30,7 @@ function FeedbackFinal () {
 
                 <div className='stars-section'>
                     <div className='stars-title'>Страви</div>
+                    {/* Відображає 5 зірок для оцінки, кожна зірка активна, якщо її значення менше або дорівнює поточній оцінці */}
                     <div className="stars">
                         {[1, 2, 3, 4, 5].map(value => (
                             <span 
@@ -44,6 +45,7 @@ function FeedbackFinal () {
 
                 <div className='stars-section'>
                     <div className='stars-title'>Обслуговування</div>
+                    {/* Відображає 5 зірок для оцінки, кожна зірка активна, якщо її значення менше або дорівнює поточній оцінці */}
                     <div className="stars">
                         {[1, 2, 3, 4, 5].map(value => (
                             <span 

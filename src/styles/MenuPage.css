@@ -1,9 +1,7 @@
 .menu-category-list {
   display: flex;
   flex-direction: row;
-  /* overflow-x: auto; */
   white-space: nowrap;
-  /* scrollbar-width: none; */
   scrollbar-width: thin;
   overflow-x: scroll;
   gap: 5px;

@@ -47,11 +47,6 @@ select, input {
   white-space: nowrap;
 }
 
-/* #long {
-  justify-content: flex-start;
-  gap: 15px;
-} */
-
 .main-title {
   display: flex;
   align-items: center;

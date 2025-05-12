@@ -12,9 +12,6 @@ function ConfirmOrderPage() {
 
     const { orderItems: initialOrderItems, totalAmount } = location.state || { orderItems: {}, totalAmount: 0 };
 
-    // const [orderItems, setOrderItems] = useState(initialOrderItems);
-    // const [totalPrice, setTotalPrice] = useState(totalAmount);
-
     const [totalPrice, setTotalPrice] = useState(() => {
         const savedtotalAmount = localStorage.getItem("totalAmount");
         return savedtotalAmount ? JSON.parse(savedtotalAmount) : totalAmount;
@@ -140,7 +137,6 @@ function ConfirmOrderPage() {
 
 function MenuItem({ item, quantity, totalPrice, setTotalPrice, updateItemQuantity }) {
 
-    // const [number, setQuantity] = useState(quantity);
     const [number, setQuantity] = useState(() => {
         const savedQuantity = localStorage.getItem(`quantity-${item.id}`);
         return savedQuantity ? JSON.parse(savedQuantity) : quantity;

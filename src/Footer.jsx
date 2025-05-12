@@ -13,6 +13,8 @@ function Footer() {
 
     const [isCopied, setIsCopied] = useState(false);
     
+    // Копіює текст із блоку .info-text у буфер обміну при кліку
+    // Відображає повідомлення про успішне копіювання на 2 секунди
     const handleCopy = (e) => {
         const infoItem = e.target.closest(".info-item");
 
@@ -39,9 +41,11 @@ function Footer() {
 
     const [isPopupVisible, setIsPopupVisible] = useState(false);
 
+    // Визначає поточний день тижня (0 — неділя - 6, 1 — понеділок - 0 і тд)
     const todayIndex = new Date().getDay();
     const currentDay = todayIndex === 0 ? 6 : todayIndex - 1;
 
+    // функція для перемикання видимості спливаючого вікна
     const togglePopup = () => setIsPopupVisible(!isPopupVisible);
 
     return(
